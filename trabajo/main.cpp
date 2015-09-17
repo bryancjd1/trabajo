@@ -136,15 +136,12 @@ if (jug==1){
             cin>> lugar;
             if (win==2) cout << "Empate" << endl;
             if (win==1) cout << "Gano el jugador " << jug << "(" << turno << ")"<<endl;
-        i--;
+            i--;
         }
         i++;
     }
-    if (jug==2)
+if (jug==2)
     {
-        cout<<"Jugar contra la maquina"<<endl;
-        cout<<"Jugar contra otra persona"<<endl;
-        cin>> o;
         int k=0;
         cout << "Turno del jugador " << jug << " ("<< turno << ")"<<endl;
         while(k!=1)
