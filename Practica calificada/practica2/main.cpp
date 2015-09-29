@@ -10,12 +10,10 @@ int main() {
         d = b + c;
         b = c;
         c = d;
-        if(e%2==0)
+        if(d%2==0)
         {
         a=a+d;
         }
-        e++;
-
     }
     cout<<a<<endl;
     return 0;
