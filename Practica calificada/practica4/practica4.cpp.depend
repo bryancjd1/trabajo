@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1443587028 source:c:\users\gonzalo\desktop\practica4.cpp\main.cpp
+	<iostream>
+	<stdlib.h>
+	<time.h>
+
