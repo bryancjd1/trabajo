@@ -28,7 +28,7 @@ int ax, ay;
 int anteriorpx,anteriorpy;
 int dd;
 int _ax,_ay;
-
+int anterior_x,anterior_y;
 
 char m[MAXFILAS][MAXCOLS] ={
      "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
@@ -292,7 +292,7 @@ void personaje2::dibujar_personaje()
 }
 void personaje2::ataque()
 {
-    if(key[KEY_X] && a==0)
+    if(key[KEY_X] && a==0 && z==2)
     {
         _ax=_px;
         _ay=_py;
@@ -433,6 +433,9 @@ void enemigo::mover_enemigo()
 {
     dibujar_enemigo();
     choque_personaje();
+    anterior_x = _x;
+    anterior_y = _y;
+
     if(m[_y/30][_x/30]=='|')
     {
         fdir = rand()%4;
@@ -536,7 +539,7 @@ void enemigo::ataque_enemigo()
 void enemigo::muerte_enemigo()
 {
 
-    if(ay == _y && ax == _x  || _ay == _y && _ax == _x)
+    if((ay == _y && ax == _x)  || (_ay == _y && _ax == _x))
     {
 
         play_sample(muertes,250,150,1000,0);
@@ -617,16 +620,12 @@ int main()
         personaje.ataque1();
         personaje3.dibujar_personaje();
         personaje3.mover_personaje();
-        personaje3.ataque();
-        personaje3.ataque1();
         A1.mover_enemigo();
         A2.mover_enemigo();
         A4.mover_enemigo();
         A3.mover_enemigo();
-        A1.muerte_enemigo();
-        A2.muerte_enemigo();
-        A3.muerte_enemigo();
-        A4.muerte_enemigo();
+        personaje3.ataque();
+        personaje3.ataque1();
         A1.ataque2();
         A1.ataque_enemigo();
         A2.ataque2();
@@ -635,7 +634,10 @@ int main()
         A4.ataque_enemigo();
         A3.ataque2();
         A3.ataque_enemigo();
-
+        A1.muerte_enemigo();
+        A2.muerte_enemigo();
+        A3.muerte_enemigo();
+        A4.muerte_enemigo();
 
         mapa.pantalla();
         rest(80); // da tiempo para que se ejecute son 70 milisengundos
